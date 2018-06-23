@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{
+        margin: 0;
+    }
+    .container{
+        border: 1px solid #000000;
+        margin: 0 auto;/*自动居中*/
+        width: 450px;
+    }
+    .top-nav{
+        background-color: black;
+        border-bottom: 1px solid black;
+    }
+    .top-nav ul{
+        padding: 0;
+    }
+    .top-nav li{
+        float: left;
+        color: white;
+        list-style: none;
+        padding: 0 20px;
+        height: 40px;
+        line-height: 40px;
+    }
+    .clearfix::after{
+        content: "";
+        clear: both;
+        display: block;
+    }
+   .top-nav .active{
+        background-color: #dddddd;
+        color: black;
+    }
+   .content ul{
+       display: none;
+   }
+    .content .active{
+        display: block;
+    }
+
+</style>
+<body>
+<div class="container">
+    <div class="top-nav">
+        <ul class="nav-ul clearfix">
+            <li class="active">第一课</li>
+            <li>第二课</li>
+            <li>第三课</li>
+        </ul>
+    </div>
+    <div class="content">
+        <ul class="active">
+            <li>网页特效原理</li>
+            <li>网页特效原理</li>
+            <li>第一页</li>
+        </ul>
+        <ul>
+            <li>第二课内容</li>
+            <li>第二课neir</li>
+        </ul>
+        <ul>
+            <li>第三课内容</li>
+            <li>第四课内容</li>
+        </ul>
+    </div>
+</div>
+<script>
+    var aul = document.getElementsByClassName("nav-ul")[0];
+    var ali=aul.getElementsByTagName("li");
+
+    var oCon = document.getElementsByClassName("content")[0];
+    var aCon = oCon.getElementsByTagName("ul");
+
+    for(var i=0;i<ali.length;i++){
+        ali[i].index = i;
+        ali[i].onmouseover = function () {
+            for (var j=0;j<ali.length;j++) {
+                ali[j].className = "";
+                aCon[j].className = "";
+            }
+            this.className = "active";
+            aCon[this.index].className = "active";
+            console.log(this.index);
+        }
+    }
+
+</script>
+</body>
+</html>

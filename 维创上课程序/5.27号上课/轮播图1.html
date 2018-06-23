@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .container{
+        position: relative;
+        width:400px ;
+        height: 250px; ;
+        margin: 50px auto 0 auto;
+        border: 1px solid black;
+        overflow: hidden;
+    }
+    .wrap{
+        position: absolute;
+        width: 2000px;
+        height: 250px;
+        z-index: 1;
+    }
+    .wrap img{
+        float: left;
+        width:400px;
+        height:250px;
+    }
+    .container .buttons{
+        position: absolute;
+        right: 10px;
+        bottom: 20px;
+        width: 150px;
+        height: 20px;
+        z-index: 2;
+    }
+    .buttons span{
+        margin-left: 5px ;
+        display: inline-block;
+        color: white;
+        background-color: coral;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 20px;
+        opacity: 0.7;
+        cursor: pointer;
+    }
+    .buttons .active{
+        color: dodgerblue;
+    }
+</style>
+<body>
+<div class="container">
+    <div class="wrap" style="left: -400px">
+        <img src="../image/5.jpg" alt="" class="active">
+        <img src="../image/1.jpg" alt="">
+        <img src="../image/2.jpg" alt="">
+        <img src="../image/3.jpg" alt="">
+        <img src="../image/4.jpg" alt="">
+        <img src="../image/1.jpg" alt="">
+    </div>
+    <div class="buttons">
+        <span class="active">1</span>
+        <span >2</span>
+        <span >3</span>
+        <span >4</span>
+    </div>
+</div>
+<script>
+    var wrap = document.getElementsByClassName("wrap")[0];
+    var img = wrap.getElementsByTagName("img");
+
+    var buttons = document.getElementsByClassName("buttons")[0];
+    var oSpan = buttons.getElementsByTagName("span");
+
+    for(var i=0;i<oSpan.length;i++){
+        oSpan[i].index = i;
+        oSpan[i].onmouseover = function () {
+            for (var j=0;j<oSpan.length;j++){
+                oSpan.className = "";
+                img.className = "";
+            }
+            this.className = "active"
+            img[this.index].className = "active";
+        }
+    }
+</script>
+</body>
+</html>

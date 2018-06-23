@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    #container{
+        position: relative;
+        width: 400px;
+        height: 250px;
+        margin: 20px 500px;
+        border: 1px solid black;
+        overflow: hidden;
+    }
+    .image{
+        position: absolute;
+        width: 2400px;
+        height: 250px;
+        z-index: 1;
+    }
+    img{
+        float: left;
+        width: 400px;
+        height: 250px;
+    }
+    .btn-right{
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        width: 100px;
+        height: 20px;
+        z-index: 2;
+    }
+    li{
+        float: left;
+        margin-left: 5px;
+        width: 20px;
+        height: 20px;
+        list-style: none;
+        display: block;
+        color: white;
+        background-color: #ff9900;
+        opacity: 0.6;
+        border-radius: 50%;
+        cursor: alias;
+        text-align: center;
+        line-height: 20px;
+
+    }
+    .btn-right .active{
+        background-color: red;
+        opacity: 0.8;
+    }
+    .btn-left{
+        position: absolute;
+        left: 10px;
+        bottom: 10px;
+        width: 50px;
+        height: 20px;
+        z-index: 2;
+    }
+    .container .btn-left:hover{
+        background-color: rgba(0,0,0,0.2);
+    }
+</style>
+<body>
+<div id="container">
+    <div class="image">
+        <img src="../image/4.jpg" alt="">
+        <img src="../image/1.jpg" alt="">
+        <img src="../image/2.jpg" alt="">
+        <img src="../image/3.jpg" alt="">
+        <img src="../image/4.jpg" alt="">
+        <img src="../image/1.jpg" alt="">
+    </div>
+    <div class="btn-right">
+        <ul>
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    </div>
+    <div class="btn-left">
+        <ul>
+            <li class="arrow-left"><</li>
+            <li class="arrow-right">></li>
+        </ul>
+    </div>
+</div>
+<script>
+    var wrap = document.getElementsByClassName("image")[0];
+    var next = document.getElementsByClassName("arrow-right")[0];
+    var pre = document.getElementsByClassName("arrow-left")[0];
+//手动切换图片
+    next.onclick = function () {
+        next_pic();
+    };
+    pre.onclick = function () {
+        pre_pic();
+    };
+    function next_pic() {
+        changImg(  参数   );
+    }
+    function pre_pic() {
+        changImg(   参数  );
+    }
+
+    //自动播放
+    var timer = 0;
+    function play() {
+
+        changImg(  参数   )；
+    }
+    play();
+
+    function changImg() {
+
+        //判断边界
+        var newLeft;
+        var direction;
+        if (wrap.style.left == "0px"){
+            newLeft = -1200 ;
+        } else if (wrap.style.left == "-1200px") {
+            newLeft = 0 ;
+            newLeft = wrap.offsetLeft + 400;
+        }
+        wrap.style.left = newLeft + "px";
+    }
+</script>
+</body>
+</html>

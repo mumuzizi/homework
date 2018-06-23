@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="divarr">a
+    <span class="spanarr">11</span>
+    <span class="spanarr">22</span>
+</div>
+<div class="divarr">b</div>
+<div class="divarr">c</div>
+<div class="divarr">d</div>
+<div class="divarr">e</div>
+<span class="spanarr">33</span>
+<script>
+    function getClass(cName,obj) {
+        // if (obj) {
+        //     thisObj=obj;
+        // } else {
+        //     thisObj=document;
+        // }
+        var thisObj = obj||document;
+        var thisArr = [];
+        var aSpan = thisObj.getElementsByTagName("*");
+        for (var i=0;i<aSpan.length;i++){
+            if (aSpan[i].className==cName) {
+                if(arrIn(aSpan[i].className,cName)){
+                    thisArr.push(aSpan[i]);
+                }
+            }
+        }
+        console.log(thisArr);
+    }
+    function arrIn(arr,str) {
+        arr=arr.split(" ");
+        for (var i=0;i<arr.length;i++){
+            if (arr[i]==str){
+                return true;
+            }
+        }
+    }
+
+    var oDiv = document.getElementsByClassName("divarr")[0];
+    getClass("divarr",oDiv);
+
+    // function a(key) {
+    //     if(key){
+    //         console.log(1);
+    //     }else{
+    //         console.log(2);
+    //     }
+    // }
+    // a()
+</script>
+</body>
+</html>

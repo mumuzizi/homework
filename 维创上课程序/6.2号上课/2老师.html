@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .container{
+        position: relative;
+        margin: 20px 400px;
+        width: 600px;
+        height:400px;
+        border: 1px solid black;
+        background-color: white;
+    }
+    .top-img{
+        text-align: center;
+    }
+    .top-img img{
+        position: absolute;
+        width:400px;
+        height:200px;
+    }
+    .bottom-img{
+        border-top: ;
+    }
+    .bottom-img ul li{
+        list-style: none;
+        float: left;
+        width: ;
+        border-right: ;
+    }
+    .bottom-img ul li:last-child{
+        border-right: 0;
+    }
+    .bottom-img
+    .clearfix{
+        clear: both;
+        display: block;
+    }
+</style>
+<body>
+<div class="container">
+    <div class="top-img">
+        <div>
+            <ul>
+                <li class="bn-btn">&lt</li>
+                <li class="bn-btn">&gt</li>
+            </ul>
+        </div>
+        <div>
+            <img id="show-img" src="../image/2.jpg">
+        </div>
+    </div>
+    <div class="bottom-img">
+        <ul class="clearfix">
+            <li><img class="list-img" src="../image/1.jpg"></li>
+            <li><img class="list-img" src="../image/2.jpg"></li>
+            <li><img class="list-img" src="../image/3.jpg"></li>
+            <li><img class="list-img" src="../image/4.jpg"></li>
+        </ul>
+    </div>
+</div>
+<script>
+    var aListImg = document.getElementsByClassName("list-img");
+    var oImg = document.getElementById("show-img");
+    for (var i=0;i<aListImg.length;i++){
+        aListImg[i].onmouseover = function () {
+            var thisImg = "";
+            thisImg = this.getAttribute("src");
+            oImg.setAttribute("src",thisImg);
+        }
+        };
+</script>
+</body>
+</html>

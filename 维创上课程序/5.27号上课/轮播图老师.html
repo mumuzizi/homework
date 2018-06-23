@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style></style>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        margin: 0;
+        background-color: black;
+    }
+    .container{
+        position: relative;
+        border: 5px solid white;
+        width: 400px;
+        height: 250px;
+        overflow: hidden;
+        margin: 30px auto;
+    }
+    .content img{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 250px;
+        width: 400px;
+        z-index: 1;
+    }
+    li{
+        float: left;
+        color: white;
+        list-style: none;
+        height: 20px;
+        width: 20px;
+        background-color:#ff9900;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 20px;
+        font-size: 12px;
+        margin:0 5px;
+        opacity: 0.7;
+    }
+    .btn-left{
+        position: absolute;
+        left:20px;
+        bottom:20px ;
+        z-index: 3;
+    }
+    .btn-right{
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+        z-index: 3;
+    }
+   .btn-right .active{
+        opacity: 0.8;
+        color: oldlace;
+       background-color: red;
+    }
+    .content .active{
+        z-index: 2;
+    }
+</style>
+<body>
+<div class="container">
+    <div class="content">
+        <img class="active" src="../image/1.jpg" alt="">
+        <img src="../image/2.jpg" alt="">
+        <img src="../image/3.jpg" alt="">
+        <img src="../image/4.jpg" alt="">
+    </div>
+    <div class="btn-left">
+        <ul>
+            <li class="bl-btn">&lt;</li>
+            <li class="bl-btn">&gt;</li>
+        </ul>
+    </div>
+    <div class="btn-right">
+        <ul>
+            <li class="br-btn active">1</li>
+            <li class="br-btn">2</li>
+            <li class="br-btn">3</li>
+            <li class="br-btn">4</li>
+        </ul>
+    </div>
+</div>
+<script>
+    var aImg = document.getElementsByTagName("img");
+    var aLbtn = document.getElementsByClassName("bl-btn");
+    var aRbtn = document.getElementsByClassName("br-btn");
+    var oContainer = document.getElementsByClassName("container")[0];
+    var timer;
+    var nowIndex = 0;
+
+    play();
+    oContainer.onmouseover = function () {
+        clearInterval(timer);
+    };
+    oContainer.onmouseout = function () {
+        play();
+    };
+    aLbtn[0].onclick = function () {
+        --nowIndex;
+        if (nowIndex<0){
+            nowIndex = 3;}
+            change(nowIndex);
+    };
+    aLbtn[1].onclick = function () {
+        ++nowIndex;
+        if (nowIndex>3){
+            nowIndex=0;
+        }change(nowIndex);
+    };
+    function change(index){
+        nowIndex = index;
+        for (var j=0;j<aImg.length;j++){
+            aImg[j].className = "";
+            aRbtn[j].className = "br-btn";
+        }
+        aImg[index].className = "active";
+        aRbtn[index].className = "br-btn active";
+    }
+
+    for(var i=0;i<aRbtn.length;i++){
+        aRbtn[i].index = i;
+        aRbtn[i].onmouseover = function(){
+            change(this.index);
+        }
+    }
+
+    function play() {
+        timer = setInterval(function () {
+            if (nowIndex>=3){
+                nowIndex=0;
+            }
+            else{
+                nowIndex++;
+            }change(nowIndex);
+        },1000)
+    }
+</script>
+</body>
+</html>
