@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+}
+#container{
+    position: relative;
+    margin: 20px 500px;
+    width: 400px;
+    height: 250px;
+    border: 1px solid black;
+    overflow: hidden;
+}
+.wrap{
+    position: absolute;
+    width: 2400px;
+    height: 250px;
+}
+img{
+    float: left;
+    width: 400px;
+    height: 250px;
+}
+.right-number{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    width: 125px;
+    height: 20px;
+    z-index: 2;
+}
+.left-arrow{
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    width: 50px;
+    height: 20px;
+    z-index: 2;
+}
+li{
+    float: left;
+    margin-left: 5px;
+    width: 20px;
+    height: 20px;
+    list-style: none;
+    display: block;
+    color: aliceblue;
+    background-color: #ff9900;
+    opacity: 0.6;
+    border-radius: 50%;
+    cursor: alias;
+    text-align: center;
+    line-height: 20px;
+}
+.right-number .active{
+    background-color: cornflowerblue;
+    opacity: 0.9;
+}
+</style>
+<body>
+     <div id="container">
+        <div class="wrap">
+            <img src="../image/1.jpg" alt=""></li>
+            <img src="../image/2.jpg" alt="">
+            <img src="../image/3.jpg" alt="">
+            <img src="../image/4.jpg" alt="">
+            <img src="../image/5.jpg" alt="">
+            <img src="../image/1.jpg" alt=""> 
+         </div>
+        <div class="right-number">
+            <ul>
+                <li class="active">1</li>
+                <li>2</li>   
+                <li>3</li>
+                <li>4</li>
+                <li>5</li> 
+             </ul>
+        </div>
+         <div class="left-arrow">
+            <ul>
+                <li class="left">&lt;</li>
+                <li class="right">&gt;</li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script>
+    var wrap = document.getElementsByClassName("wrap")[0];
+    var rNumber = document.querySelectorAll(".right-number li");
+    var lArrow = document.querySelectorAll(".left-arrow li");
+    var container = document.getElementById("container");
+    var nowIndex = 0;
+    var isRun = true;
+    var isTimer = true;
+
+     //下标按钮绑定事件
+     for(var i=0;i<rNumber.length;i++){
+      rNumber[i].index = i;
+      rNumber[i].onmouseover = function(){
+        if(isRun && nowIndex!=this.index){
+          changeImg(this.index);
+        }
+      }
+    }
+
+    //方向按钮绑定事件
+    for(var j=0;j<lArrow.length;j++){
+      lArrow[j].onclick = function(){
+        var thisArr = this.className;
+        if(thisArr == "left"){
+          changeImg(nowIndex-1);
+        }else{
+          changeImg(nowIndex+1);
+        }
+      }
+    }
+    //图片切换
+    function changeImg(index) {
+        var direction = 1;//方向
+        index > nowIndex ? direction = -1  : direction = 1;//判断方向
+        nowIndex=index;//索引赋值
+        //判断边界值
+        if(index == -1){
+        nowIndex = 4;
+        index=4;
+        wrap.style.left = -2000 + "px";
+      }else if(index == 5){
+        nowIndex = 0;
+      }
+        isRun = false;//关闭事件
+       
+        var timer = setInterval(function(){
+        wrap.style.left = wrap.offsetLeft + direction*10 + "px";
+        if(wrap.offsetLeft == -400*index){
+          clearInterval(timer);
+          if (index == 5) {
+              wrap.style.left = 0 + "px";
+          }
+          isRun = true;//开启事件 
+        }
+      },30)
+       //下标按钮的选中状态
+       for(var i=0;i<rNumber.length;i++){
+         rNumber[i].className = "";
+       }
+       rNumber[nowIndex].className = "active"
+     }
+    
+     //滑入禁止动画
+     container.onmouseover = function(){
+      isTimer = false;
+    }
+    container.onmouseout = function(){
+      isTimer = true;
+    }
+      //定时函数
+    var timerLoop = setInterval(function(){
+      if(isRun && isTimer){
+        changeImg(nowIndex+1);
+      }
+    },1000) 
+    
+</script>
+</html>

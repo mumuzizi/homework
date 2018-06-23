@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+     *{
+         margin: 0;
+         padding: 0;
+     }
+     #container{
+         position: relative;
+         margin: 20px 500px;
+         width: 400px;
+         height: 250px;
+         border: 1px solid black;
+         overflow: hidden;
+     }
+     .wrap{
+         position: absolute;
+         width: 2400px;
+         height: 250px;
+     }
+     img{
+         float: left;
+         width: 400px;
+         height: 250px;
+     }
+     .right-number{
+         position: absolute;
+         right: 10px;
+         bottom: 10px;
+         width: 125px;
+         height: 20px;
+         z-index: 2;
+     }
+     .left-arrow{
+         position: absolute;
+         left: 10px;
+         bottom: 10px;
+         width: 50px;
+         height: 20px;
+         z-index: 2;
+     }
+     li{
+         float: left;
+         margin-left: 5px;
+         width: 20px;
+         height: 20px;
+         list-style: none;
+         display: block;
+         color: aliceblue;
+         background-color: #ff9900;
+         opacity: 0.6;
+         border-radius: 50%;
+         cursor: alias;
+         text-align: center;
+         line-height: 20px;
+     }
+     .right-number .active{
+         background-color: cornflowerblue;
+         opacity: 0.9;
+     }
+    </style>
+<body>
+    <div id="container">
+    <div class="wrap">
+            <img class="active" src="../image/1.jpg" alt=""></li>
+            <img src="../image/2.jpg" alt="">
+            <img src="../image/3.jpg" alt="">
+            <img src="../image/4.jpg" alt="">
+            <img src="../image/5.jpg" alt="">
+            <img src="../image/1.jpg" alt=""> 
+    </div>
+    <div class="right-number">
+        <ul>
+            <li class="active">1</li>
+            <li>2</li>   
+            <li>3</li>
+            <li>4</li>
+            <li>5</li> 
+        </ul>
+    </div>
+    <div class="left-arrow">
+        <ul>
+            <li class="active">&lt;</li>
+            <li>&gt;</li>
+        </ul>
+    </div>
+    </div>
+    <script>
+        //自动播放
+        var wrap = document.getElementsByClassName("wrap")[0];
+        var img = wrap.getElementsByTagName("img");
+        var timer;
+        var isRun = true;
+        var nowIndex = 0;
+
+        function play(){
+             isRun = true;
+            timer = setInterval(function  (){
+            var newLeft;
+            if (wrap.style.left == "-2000px") {
+                newLeft = 0;
+            }else{
+            newLeft = wrap.offsetLeft - 10;
+            }
+            wrap.style.left = newLeft + "px";
+            },30) 
+        }
+        play();
+
+        var container = document.getElementById("container");
+        //鼠标移入停止
+        container.onmouseover = function(){
+            clearInterval(timer);
+            if(isRun){
+                timer = setInterval(function () {
+                    wrap.style.left = wrap.offsetLeft - 10 + "px";
+                    if (wrap.offsetLeft % 400 == 0) {
+                        clearInterval(timer);
+                        isRun = false;
+                     }
+                },30)
+            }
+          }
+          //鼠标移出继续播放
+        container.onmouseout = function(){
+            clearInterval(timer);
+            play();
+        }
+       
+       //改变下标
+       var rNumber = document.getElementsByClassName("right-number")[0];
+       var number = rNumber.getElementsByTagName("li");
+
+       for (var i = 0; i < number.length; i++) {
+           number[i].index = i;
+           number[i].onmousemove = function (){
+               change(this.index);
+           }
+       }      
+      
+    function change(index){
+        for (var j=0; j<number.length; j++){
+            number[j].className = "";
+            img[j].className = "";
+        }
+        number[index] = "active";
+        img[index] = "active";
+    }
+    </script>
+</body>
+</html>
