@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    #site-nav{
+        background-color: rgba(0, 0, 0, 0.55);
+        width: 200px;
+        height: 500px;
+    }
+
+    li{
+        list-style: none;
+        width: 200px;
+        height: 31.25px;
+    }
+    @font-face {font-family: "iconfont";
+                src: url('iconfont.eot?t=1530317337687'); /* IE9*/
+                src: url('iconfont.eot?t=1530317337687#iefix') format('embedded-opentype'), /* IE6-IE8 */
+                url('data:application/x-font-woff;charset=utf-8;base64,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') format('woff'),
+                url('iconfont.ttf?t=1530317337687') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+                url('iconfont.svg?t=1530317337687#iconfont') format('svg'); /* iOS 4.1- */
+                }
+
+    .iconfont {
+                font-family:"iconfont" !important;
+                 font-size:16px;
+                 font-style:normal;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                }
+
+    
+    .icon-qunzi:before{ content: "\e600";}
+    .icon-icon_fuzhuangxiangbao:before{ content: "\e646";}
+    .icon-xiezi:before{ content: "\e609";}
+    .icon-kouhong:before{ content: "\e644";}
+    .icon-icons64x6454:before{ content: "\e674";}
+    .icon-weibiaoti2fuzhi07:before{ content: "\e615";}
+    .icon-gouwuche:before{ content: "\e606";}
+    .icon-gouwuche:before{ content: "\e606";}
+    .icon-gouwuche:before{ content: "\e606";}
+    .icon-gouwuche:before{ content: "\e606";}
+    .icon-gouwuche:before{ content: "\e606";}
+    .icon-gouwuche:before{ content: "\e606";}
+    .icon-gouwuche:before{ content: "\e606";}
+    .icon-gouwuche:before{ content: "\e606";}
+    .icon-gouwuche:before{ content: "\e606";}
+    .icon-gouwuche:before{ content: "\e606";}
+</style>
+<body>
+    <div id="site-nav">
+        <ul id = test></ul>
+    </div>
+    
+    <script src="../7.1号上课/jquery-3.3.1.min.js"></script>
+    <script>
+        var thisHtml = "";
+        var thisUrl =  "file:///E:/%E7%A8%8B%E5%BA%8F%E7%8C%BF/vscode/homework/%E7%BB%B4%E5%88%9B%E4%B8%8A%E8%AF%BE%E7%A8%8B%E5%BA%8F/7.1%E5%8F%B7%E4%B8%8A%E8%AF%BE/wenjianku.html";
+        $.ajax({
+            type:"get",
+            url:thisUrl,
+            data:"",
+            dataType:"json",
+            success:function(data){
+               console.log(data.listMenu);
+               for(var i= 0;i<data.listMenu.length;i++){
+                thisHtml+="<li>"
+                    for(var j=0;j<data.listMenu[i].length-1;j++){
+                        
+                        thisHtml +=data.listMenu[i][j] +"  ";
+                    }   
+                 thisHtml+="</li>"    
+                }
+                console.log(thisHtml);
+                var oTest = document.getElementById("test");
+                oTest.innerHTML = thisHtml;
+            }
+        }) 
+    </script>
+</body>
+</html>

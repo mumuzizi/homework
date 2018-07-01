@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+      
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .site-nav{
+            width: auto;
+            height: 32px;
+            background-color: #f2f2f2;
+            border-bottom: 1px solid #e5e5e5;
+            font-size: 14px;
+            color: #999;
+        }
+        .site-width{
+            width: 1230px;
+            height: 32px;
+            margin: 0 auto;
+        }
+        .clearfix::after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .site-nav .sn-left{
+            float: left;
+            height: 32px;
+            line-height: 32px;
+        }
+        .site-nav .sn-left a{
+            padding: 0 10px;
+        }
+        .site-nav .sn-left a:nth-child(2){
+            padding:0 10px 0 20px;
+        }
+        .site-nav .sn-right{
+            float: right;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-align: center;
+        }
+        .site-nav .sn-right li{
+            float: left;
+            padding: 0 15px;
+            height: 32px;
+            line-height: 32px;
+            position: relative;
+            border-width: 0 1px 0 1px;
+            border-style: solid;
+            border-color: #f2f2f2;
+        }
+        .site-nav .sn-right .iconfont{
+            font-size: 12px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="site-nav">
+        <div class="site-width clearfix">
+            <div class="sn-left">
+                <span>喵，欢迎来到天猫</span>
+                <a href="#">请登录</a>
+                <a href="#">免费注册</a>
+            </div>
+            <div class="sn-right">
+                <ul>
+                    <li class="drup-menu">
+                        <a>我的淘宝</a>
+                        <b></b>
+                        <div class="sn-menu">
+                            <p href="#">已买到的宝贝</p>
+                            <p href="#">已卖出的宝贝</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="iconfont icon-cart"></i>
+                        <a>购物车</a>
+                    </li>
+                    <li>
+                        <a href="#">收藏夹</a> 
+                        <b></b>
+                    </li>
+                    <li class="sn-separator"></li>
+                    <li>
+                        <i class="iconfont .icon-mobilephone"></i>
+                        <a href="#">手机版</a>
+                    </li>
+                    <li><a href="#">淘宝网</a></li>
+                    <li>
+                        <a href="#">商家支持</a>
+                        <b></b>
+                    </li>
+                    <li>
+                        <i class="icontfont "></i>
+                        <a href="#">网站导航</a>
+                        <b></b>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

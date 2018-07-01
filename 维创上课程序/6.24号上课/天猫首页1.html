@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    /*第一块*/
+    #site-nav{
+        background-color: cornsilk;
+    }
+    .sn-container{
+        position: relative;
+        height: 32px;
+        width: 1230px;
+        margin: 0 40px;
+        text-align: center;
+        line-height: 32px;
+        color: lightslategrey;
+    }
+    .sn-login-info{
+        position: absolute;
+        left: 0;
+        font-size: 6%;
+    }
+    .sn-container .sn-quick-menu{
+        position: absolute;
+        right: 0%;
+        font-size: 6%;
+    }
+    .sn-quick-menu li{
+        list-style: none;
+        float: left;
+        margin: 0 5px;
+    }
+    li:hover{
+        color: red;
+        cursor: pointer;
+    }
+    span:hover{
+        color: red;
+        cursor: pointer;
+    }
+    /*第二块*/
+    .headerCon{
+        position: relative;
+        height: 130px;
+    }
+    .headerCon .logo{
+        position: absolute;
+        left: 10px;
+        height: 130px;
+        width: 240px;
+    }
+    .mallSearch{
+        position: absolute;
+        top: 38px;
+        left: 350px;
+        width: 625px;
+        height: 40px;
+        border: 2px solid red;
+    }
+    .mallSearch button{
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: red;
+        border: red;
+        color: white;
+        width: 100px;
+        height: 40px;
+        cursor: pointer;
+    }
+    .mall-search-input{
+        width: 520px;
+        height: 40px;
+        line-height: 40px;
+        color: darkgrey;
+        margin-left: 5px;
+    }
+    .hot-query{
+        position: absolute;
+        left: 350px;
+        top: 85px;
+        height: 20px;
+    }
+    .hot-query li{
+        list-style: none;
+        float: left;
+        padding: 0 10px 0 0;
+        margin-right:10px; 
+        border-right: 1px solid lightslategrey;
+        color: lightslategrey;
+        font-size: 15%;
+    }
+    /*第三块*/
+    .main-nav{
+        position: relative;
+        height: 36px;
+        width: 100%;
+        border-bottom: 1px solid red;
+    }
+    .inner-con{
+        height: 35px;
+        width: 1030px;
+    }
+    .category-type{
+        position: absolute;
+        left: 50px;
+        background-color: red;
+        width: 200px;
+        height: 36px;
+        text-align: center;
+        line-height: 36px;
+        color: white;
+       font-size: 20px;
+    }
+    .inner-con1{
+        position: absolute;
+        left: 280px;
+    }
+    .inner-con1 li{
+        list-style: none;
+        float: left;
+        margin: 0 10px;
+        line-height: 36px;
+    }
+    .inner-con1 li:hover{
+        cursor: pointer;
+        color: red;
+    }
+    /*第四块*/
+    .main-banner{
+        position: relative;
+        width: 100%;
+        height: 600px;
+        margin-bottom: 40px;
+    }
+    .main-banner-con .main-banner-category{
+        position: absolute;
+        top: 0;
+        left: 50px;
+        width: 200px;
+        height: 600px;
+        background-color: rgba(0,0,0,0.7);
+        opacity: 0.5;
+        z-index: 2;
+    }
+    .main-banner-category li{
+        list-style: none;
+        height: 37.5px;
+        text-align: center;
+        line-height: 37.5px;
+        color: white;
+    }
+    .main-banner-category li:hover{
+        background-color: white;
+        color: red;
+    }
+    .main-banner-button{
+        position: absolute;
+        left: 500px;
+        bottom: 30px;
+        z-index: 2;
+    }
+    .main-banner-button span{
+        margin-left: 20px;
+        float: left;
+        height: 5px;
+        width: 30px;
+        background-color:hsla(0, 10%, 14%, 0.705);
+     }
+    .main-banner-button .active{
+        background-color:  #cce0bf8e;
+     }
+     .main-banner-twopic{
+         position: absolute;
+         right: 50px;
+         top: 0;
+         height: 600px;
+         width: 300px;
+     }
+     .main-banner-twopic div{
+         margin-top: 10px;
+         height:300px ;
+         width: 300px;
+     }
+
+</style>
+<body>
+    <div id="site-nav">
+        <div class="sn-container">
+            <p class="sn-login-info">
+                <em>喵，欢迎来天猫</em>
+                <span style="margin: 0 5px">请登录</span>
+                <span style="margin: 0 5px">免费注册</span>
+            </p>
+            <ul class="sn-quick-menu">
+                <li>我的淘宝</li>
+                <li>
+                    <i class="shopping iconfont icon-03"></i>
+                    购物车
+                </li>
+                <li>收藏夹</li>
+                <li>|</li>
+                <li>手机版</li>
+                <li>淘宝网</li>
+                <li>商家支持</li>
+                <li>网站导航</li>
+            </ul> 
+        </div>
+    </div>
+    <div id="header">
+        <div class="headerCon">
+            <div class="logo">
+                <img src="../image/tmall.png" alt="" height="130px" width="240px">
+            </div>
+            <div class="mall-search">
+                <div class="mallSearch">
+                    <div class="mall-search-input"> 搜索 天猫 商品/品牌/定位</div>
+                    <button>搜索</button>
+                </div>
+                <ul class="hot-query">
+                    <li>针织衫</li>
+                    <li style="color: red">连衣裙</li>
+                    <li>四件套</li>
+                    <li style="color: red">摄像头</li>
+                    <li>客厅灯</li>
+                    <li>口红</li>
+                    <li style="color: red">手机</li>
+                    <li>运动鞋</li>
+                    <li style="color: red">牛奶</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="content">
+        <div class="main-nav">
+            <div class="inner-con">
+                <div class="category-type">商品分类</div>
+                <div class="inner-con1">
+                    <ul>
+                        <li><img src="../image/tmall-super.png" alt="" height="36px"></li>
+                        <li><img src="../image/tmall-inter.png" alt="" height="36px"></li>
+                        <li>天猫会员</li>
+                        <li>电器城</li>
+                        <li>喵鲜生</li>
+                        <li>医药馆</li>
+                        <li>营业厅</li>
+                        <li>魅力惠</li>
+                        <li>飞猪旅行</li>
+                        <li>苏宁易购</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="j-category">
+            <div class="main-banner">
+               <div class="main-banner-img">
+                   <img src="../image/1.jpg" alt="">
+                   <img src="../image/2.jpg" alt="">
+                   <img src="../image/3.jpg" alt="">
+                   <img src="../image/6.jpg" alt="">
+                   <img src="../image/7.jpg" alt="">
+               </div>
+                <div class="main-banner-con">
+                    <div class="main-banner-category">
+                        <ul>
+                            <li>女装/内衣</li>
+                            <li>男装/运动户外</li>
+                            <li>女鞋/男鞋/箱包</li>
+                            <li>美妆/个人护理</li>
+                            <li>腕表/眼镜/珠宝饰品</li>
+                            <li>手机/数码/电脑办公</li>
+                            <li>母婴玩具</li>
+                            <li>零食/茶酒/进口零食</li>
+                            <li>生鲜水果</li>
+                            <li>大家电/生活电器</li>
+                            <li>家具建材</li>
+                            <li>汽车/配件/用品</li>
+                            <li>家纺/家饰/鲜花</li>
+                            <li>医药保健</li>
+                            <li>厨具/收纳/宠物</li>
+                            <li>图书音像</li>
+                        </ul>
+                    </div>
+                    <div class="main-banner-twopic">
+                        <div><img width="300px" height="200px" src="../image/5.jpg" alt=""></div>
+                        <div><img width="300px" height="200px" src="../image/7.jpg" alt=""></div>
+                    </div>
+                    <div class="main-banner-button">
+                      <span class="active"></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div></div>
+    </div>
+</body>
+</html>
+<!-- querySelectorAll获取所有，querySelector默认获取第一个。 -->
