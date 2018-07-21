@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        
+        .progress{
+            display: block;
+            /* width: 300px;
+            height: 20px; */
+            border-radius: 5px 5px;
+            border: 1px solid black;
+            }
+        button{
+            border: 1px solid black;
+            margin-top: 5px;
+            position: absolute;
+            top: 40px;
+            left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <progress value="0" max="100" id="pg"></progress>
+    <button>开始</button>
+    <script>
+        var pg=document.getElementById('pg');
+        var button=document.getElementsByTagName("button")[0];
+        button.onclick = function(){
+            setInterval(function(e){
+            if(pg.value!=100) pg.value++;
+             else pg.value=0;
+        },10);
+        }
+    </script>
+    </body>
+    </html>

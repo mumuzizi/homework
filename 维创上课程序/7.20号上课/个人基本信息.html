@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+       .active{
+           background-color: pink;
+       }
+    </style>
+</head>
+<body>
+    <!-- <form action method="POST" id="regForm">
+        <fieldset>
+            <legend>个人基本信息</legend>
+            <div class="name">
+                    名称：<input type="text" value="姓名">
+        
+                </div>
+                <div class="password">
+                    密码：<input type="text" value="12">
+                </div>
+                <div class="message">
+                    详细信息：<input type="text" value="详细信息"> 
+                </div>
+        </fieldset>
+    </form> -->
+    <input type="text" value="姓名">
+    <input type="password" value="123">
+    <textarea name="" id="" cols="30" rows="10" >文本框</textarea>
+    <script src="../JQUERY/jquery-3.3.1.min.js"></script>
+    <script>
+        $(":input").on("focus",function(){
+            this.value="";
+            $(this).addClass("active")
+
+        })
+        $(":input").on("blur",function(){
+            console.log(this.defaulValue);
+            $(this).removeClass("active").val(this)
+        })
+    </script>
+   
+</body>
+</html>

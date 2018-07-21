@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            color: white;
+            width: 120px;
+            font-size: 13px;
+            text-align: center;
+        }
+        select{
+            width: 120px;
+            margin: 10px;
+            height: 150px;
+        }
+        .left{
+            background-color: dimgray;
+            position: absolute;
+            left: 10px;
+            top:160px;
+        }
+        .right{
+            background-color: dimgray;
+            position: absolute;
+            left: 155px;
+            top: 160px;
+        }
+    </style>
+</head>
+<body>
+    <select name="addTor" multiple="multiple">
+        <option selected="selected">选项一</option>
+        <option selected="selected">选项二</option>
+        <!-- <option selected="selected">选项三</option>
+        <option selected="selected">选项四</option>
+        <option selected="selected">选项五</option>
+        <option selected="selected">选项六</option>
+        <option selected="selected">选项七</option>
+        <option selected="selected">选项八</option> -->
+    </select>
+    <select name="addTol" multiple="multiple"> 
+        <option selected="selected">选项三</option>
+        <option selected="selected">选项四</option>
+        <option selected="selected">选项五</option>
+        <option selected="selected">选项六</option>
+        <option selected="selected">选项七</option>
+        <option selected="selected">选项八</option>
+    </select>
+    <div class="left">
+            <div style="margin-bottom: 5px  "><em>选中添加到右边>></em></div>
+        <div><em>全部添加到右边>></em></div>   
+    </div>
+    <div class="right">
+        <div style="margin-bottom: 5px;"><em>选中删除到左边>></em></div>
+        <div><em>全部删除到左边>></em></div>
+    </div>
+   
+
+    <script src="../JQUERY/jquery-3.3.1.min.js"></script>
+    <script>
+        $("option").on("click",function(){
+
+        })
+    </script>
+</body>
+</html>

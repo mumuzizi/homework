@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 300px;
+            height: 20px;
+            border-radius: 5px 5px;
+            border: 1px solid black;
+            overflow: hidden;
+        }
+        button{
+            border: 1px solid black;
+            margin-top: 5px;
+        }
+        .fill{
+            height: 20px;
+            width: 0;
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="fill"><span></span></div>
+    </div>
+    <button>开始</button>
+    <script>
+        var fill=document.getElementsByClassName("fill")[0];
+        var button=document.getElementsByTagName("button")[0];
+        var span=document.getElementsByTagName("span")[0];
+        var contentNum=0;
+        button.onclick = function(){
+            fill.style.width = 0;
+            contentNum = 0;
+           requestAnimationFrame(run);
+        }
+        function run(){
+             contentNum++;
+             span.innerHTML = contentNum + "%";
+             fill.style.width = fill.offsetWidth + 3 +"px";
+             if(contentNum<100)  {
+                requestAnimationFrame(run);
+            }
+        }
+    </script>
+</body>
+</html>     
