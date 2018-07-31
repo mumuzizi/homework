@@ -29,30 +29,52 @@
     <thead><tr><th colspan="2" style="text-align: center">鼠标点击就可以编辑</th></tr></thead>
     <tbody>
         <tr><td>学号</td><td>姓名</td></tr>
-        <tr><td>1</td><td>张三</td></tr>
-        <tr><td>2</td><td>李四</td></tr>
-        <tr><td>3</td><td>王五</td></tr>
-        <tr><td>4</td><td>赵六</td></tr>
+        <tr><td>1</td><td class="editable">张三</td></tr>
+        <tr><td>2</td><td class="editable">李四</td></tr>
+        <tr><td>3</td><td class="editable">王五</td></tr>
+        <tr><td>4</td><td class="editable">赵六</td></tr>
     </tbody>
 </table>
 <script src="../JQUERY/jquery-3.3.1.min.js"></script>
 <script>
- $("tbody td").on("click",function(){
-    var tdObj = $(this);
-    var inputTxt = $("<input type='text'/>");
-    inputTxt.val($(this).html());
-    $(this).html("");
-     inputTxt.appendTo($(this));
-     inputTxt.trigger('foucs').trigger('select'); 
-    //  inputTxt.keyup(function (event) {
-    //                     tdObj.html(text);
-    //             });
-      
-    inputTxt.blur(function () {
-         tdObj.html($(this).val());
-    });
+//  $("tbody td").on("click",function(){
+//     var tdObj = $(this);
+//     var inputTxt = $("<input type='text'/>");
+//     inputTxt.val($(this).html());
+//     $(this).html("");
+//      inputTxt.appendTo($(this));
+//      inputTxt.trigger('foucs').trigger('select'); 
+//     inputTxt.blur(function () {
+//          tdObj.html($(this).val());
+//     });
+//  })   第一种方法
+
+//第二种方法
+ $("editable").on("click",function(){
+     if($(this).children("input").length==0){
+        var inpObj = $("<input type='text'/>");
+     inpObj.val(this.innerText);
+     $(this).empty();
+     $(this).append(inpObj);
+     }
  })
- 
+//  $("editable").on("blur","input",function(){
+//      var father=$(this).parent("td");
+//     //  console.log($(this).val());
+//      father.text($(this).val());
+//      $(this).remove();
+//  })
+
+ $("editable").on("focusout",function(){
+var child = $(this).children("input");
+$(this).text(child.val());
+ })
+
+  $("editable").on("keyup",function(e){
+      if(e.which==13){
+          $(this).trigger()
+      }
+ })
 </script>
 </body>
 </html>

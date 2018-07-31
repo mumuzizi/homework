@@ -1,0 +1,10 @@
+$(".nav-menu").click(function(){
+    $(".container-1").hide();
+    $(".container-2").show();
+    $(".footer-1").show();
+})
+$(".close").click(function(){
+    $(".container-1").show();
+    $(".container-2").hide();
+    $(".footer-1").hide();
+})

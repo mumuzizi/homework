@@ -1,0 +1,136 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+}
+#app-view-wrapper{
+    width: 100%;
+    height: 100%;
+}
+a{
+    color: black;
+}
+.nav{
+    width: 30%;
+    height: 100%;
+    border: 1px solid rgb(170, 166, 157);
+    border-top: 0;
+}
+.clearfix{
+    content: "";
+    display: block;
+    clear: both;    
+}
+.header{
+    height: 100px;
+}
+.header div{
+    float: left;
+}
+.header div:nth-child(3){
+    margin-left: 70px;
+    margin-top: 15px;
+}
+.header div:nth-child(1){
+    margin:5px 0 0 10px;
+}
+.primary{
+    margin: 15px 0 0 25px;
+}
+.primary li{
+    list-style: none;
+    float: left;
+    margin-left: 10px;
+    font-size: 20px;
+}
+.body{
+    height:calc(100%-100px);
+}
+.display-1 span{
+    font-size: 35px;
+}
+#account-enter{
+    /* vertical-align: middle; */
+    margin-top: 45%;
+    margin-left: 10%;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-content: center;
+    justify-content:center;
+}
+.footer{
+    height: 50px;
+    margin-top: 20px;
+}
+.footer .sign-in span{
+    font-size: 20px;
+}
+.footer .sign-in{
+    /* float: left; */
+    margin-right: 24px;
+    padding: 3px 0;
+}
+.footer .register{
+    background: none;
+    border: 1px solid #00A862;
+    border-radius: 48px;
+    box-sizing: border-box;
+    color: #00A862;
+    display: inline-block;
+    font-weight: 500;
+    outline: none;
+    overflow: hidden;
+    padding: 6px 18px;
+    position: relative;
+    transition-duration: 0.1s;
+    transition-property: background, border-color, color;
+}
+.container-2{
+    display: none;
+}
+.button{
+    background-color: white;
+}
+.footer-1{
+    display: none;
+}
+
+/* 第二部分 */
+.container-2{
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+}
+.container-2 .header{
+    position: relative;
+    width: 100%；
+}
+.container-2 .header .logo{
+    margin: 5px;
+}
+.container-2 .header span{
+    font-size: 16px;
+    position: absolute;
+    right: 42px;
+    top: 20px;
+}
+.container-2 .body li a{
+    font-size: 18px;
+  font-family:  "Gotham", Helvetica, Arial, PingFangSC-Regular, "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}
+.container-2 li{
+    margin: 20px 0;
+}
+.container-2 ul{
+    margin-left: 50px;
+}
+.container-2 .middle{
+    margin: 0 20px;
+}
+.container-2 .footer{
+
+}
