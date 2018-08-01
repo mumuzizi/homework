@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script language="javascript">
+      function setCookie(name,value,expires){
+        var timer = new Date();
+        timer.setTime(timer.getTime()+expires);   
+        document.cookie = name + "=" + value + ";expires=" + timer.toGMTString();
+        // escape(value)加密
+      }
+
+function getCookie(name){
+    var cookieStr = document.cookie;
+    var thisArr = cookieStr.split(";");
+    for(var i=0;i<thisArr.length;i++){
+        if(thisArr[i].split("=")[0].trim()==key){
+            return thisArr[i].split("=")[1].trim();
+        }
+    }
+
+
+    // if(document.cookie.length>0){
+    //     start = document.cookie.indexOf(name + "=")
+    //     // 如果没有检索到则返回-1
+    //     if(start != -1){
+    //         start = start + name.length + 1;
+    //         end = document.cookie.indexOf(";",start);
+    //         if(end==-1){
+    //             end = document.cookie.length;
+    //         }
+    //         return unescape(document.cookie.substring(start,end))
+    //         // unescape()解密
+    //     }
+    // }
+    // return ""
+}
+
+    function delCookie(name) 
+    { 
+        var exp = new Date(); 
+        exp.setTime(exp.getTime() - 1); 
+        var cval=getCookie(name); 
+        if(cval!=null) 
+            document.cookie= name + "="+cval+";expires="+exp.toGMTString(); 
+    }
+
+ setCookie('name','xiaoming',5 );
+
+
+</script>
+</body>
+</html>
