@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        // function foo(a,b){
+        //    return a+b;
+        // }
+        // foo(1,2);
+        // console.log(foo(1,2));
+        // let fun = (a,b) =>{
+        //     console.log(a+b);
+        // }
+        // fun(2,3);
+        // console.log(fun(2,3));
+
+        // var box = document.getElementById("box");
+        // box.onclick = function(){
+        //     console.log(this);
+            
+        // }
+        // box.onclick = () => {
+        //     console.log(this);
+            
+        // }
+
+        // let foo = () => {
+        //     console.log(arg);
+        // }
+        var obj = {
+            birth: 1990,
+            getAge: function (year) {
+            var b = this.birth; // 1990
+            var fn = (y) => y - this.birth; // this.birth仍是1990
+            return fn.call({birth:2000},year);
+            }
+        };
+console.log(obj.getAge(2015)); // 25
+        
+    </script>
+</body>
+</html>
