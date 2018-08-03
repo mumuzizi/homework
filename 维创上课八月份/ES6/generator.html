@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function run(url){
+            $.get(url,function(res){
+                console.log(res.name);
+                a.next();
+            })
+        }
+
+        function* foo(x){
+            yield run("a.json");
+            yield run("b.json");
+            yield run("c.json");
+        }
+        
+        var a = foo();
+        a.next();
+        b.next();
+        c.next();
+    </script>
+</body>
+</html>

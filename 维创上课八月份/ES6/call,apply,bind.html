@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var aa = "123";
+        // function foo(name,age,school){
+        //     console.log(thsi.aa);
+        //     console.log(name);
+        //     console.log(age);
+        // }
+        // var obj = {
+        //     aa:"abcd"
+        // }
+        // foo.call(obj,"zhangsan","30","heida");
+        // foo.apply(obj,["zhangsan","30","linda"]);
+        // var foo2 = foo.bind(obj);
+        // foo2("lisi","10");
+
+        // function foo(){
+        //     console.log(Array.from(arguments));
+        // }
+        // var obj = {
+        //     name:"zhangsan"
+        // }
+        // foo(obj,"20","heida");
+
+        Function.prototype.bind2 = function(){
+            let obj = Array.from(arguments)[0];
+            let args = Array.from(arguments).slice(1);
+            let that = this;
+            return function(){
+                let bingArgs = Array.from(arguments);
+                let allArgs = args.concat(bindArgs);
+                that.call(obj)
+            }
+        }
+
+        function foo(name,age){
+            console.log(this.school());
+            console.log(name);
+            console.log(age);
+        }
+        let obj = {
+            school:"linda"
+        }
+
+        let foo2 = foo.bind(obj);
+        foo2("lisi","20");
+    </script>
+</body>
+</html>
