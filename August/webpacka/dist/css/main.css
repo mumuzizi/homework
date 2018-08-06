@@ -1,0 +1,33 @@
+/*! 唯创网讯 */
+.box2 {
+  color: blue;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.imgs {
+  width: 100px;
+  height: 100px;
+  background-image: url(../images/e65686208e1f627eb6cf4ae041741ad8.jpg);
+  border-radius: 10px;
+  display: flex;
+}
+
+::-webkit-input-placeholder {
+  color: gray;
+}
+
+:-ms-input-placeholder {
+  color: gray;
+}
+
+::-ms-input-placeholder {
+  color: gray;
+}
+
+::placeholder {
+  color: gray;
+}
