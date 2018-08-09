@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+    
+    </style>
 </head>
 <body>
     <div id="button-events">
@@ -13,37 +16,30 @@
     </div>
 
     <div id="window-a">
-        <alert-box>
+        <alert-box name="登陆">
             <div>用户名：</div>
             <div>密码：</div>
         </alert-box>
-        <alert-box>
+        <alert-box name="注册">
             <div>用户名：</div>
             <div>密码：</div>
         </alert-box>
     </div>
     <script src="vue.js"></script>
     <script>
-        Vue.component('button-c',{
-           props:['value'],
-            template:`<button @clcik="$emit('onload')">{{value}}</button>`
-        })
         Vue.component('alert-box', {
+            props:['name'],
             template: `<div class="demo-alert-box">
                         <slot></slot>
-                        <button>确认</button>
+                        <button>{{name}}</button>
                         </div>`
          })
          new Vue({
-             el:"#window-a"
+             el:"#window-a",
+             data:{
+               
+             }
          })
-
-        new Vue({
-            el:"#button-events",
-            data:{
-
-            }
-        })
     </script>
 </body>
 </html>
