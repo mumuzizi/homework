@@ -1,0 +1,130 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+       #blog-post-demo div{
+            float: left;
+        }
+    </style>
+</head> -->
+
+<!-- //第一种方法，在组件里直接定义title
+<body>
+    <div id="app">
+        <blog-post title="My journey with Vue"></blog-post>
+        <blog-post title="Blogging with Vue"></blog-post>
+        <blog-post title="Why Vue is so fun"></blog-post>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        Vue.component('blog-post', {
+            props: ['title'],
+            template: "<h3>{{title}}</h3>",
+            })
+        new Vue({
+            el:"#app",
+        })
+    </script>
+</body> -->
+
+<!-- 第二种方法在data里循环title -->
+<!-- <body>
+    <div id="blog-post-demo">
+        <blog-post v-for="post in posts" :key="post.id" :title="post.title"></blog-post>
+        every component must have a single root element (每个组件必须只有一个根元素)。
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        Vue.component('blog-post', {
+            props: ['title'],
+            template: "<h3>{{title}}</h3>",
+        })
+        new Vue({
+            el: '#blog-post-demo',
+            data: {
+            posts: [{ id: 1, title: 'My journey with Vue' },
+                    { id: 2, title: 'Blogging with Vue' },
+                    { id: 3, title: 'Why Vue is so fun' }]
+            }
+        })
+    </script>
+</body> 
+第三种
+<! <body>
+    <div id="blog-post-demo">
+        <blog-post v-for="post in posts" :key="post.id" :post="post"></blog-post>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        Vue.component('blog-post', {
+            props: ['post'],
+            template: `
+                    <div class="blog-post">
+                        <h3>{{ post.title }}</h3>
+                        <h3>{{ post.content }}</h3>
+                        <h3>{{ post.publishedAt }}</h3>
+                        <h3>{{ post.comments }}</h3>
+                    </div>
+                 `
+        })
+        new Vue({
+            el: '#blog-post-demo',
+            data:{
+                posts: [{ id: 1, title: 'My journey with Vue',content:'cata',publishedAt:'lisi',comments:'great'},
+                    { id: 2, title: 'Blogging with Vue',content:'characteristic',publishedAt:'xiaoming',comments:'hundsome' },
+                    { id: 3, title: 'Why Vue is so fun',content:'scenery',publishedAt:'lixin',comments:'marvwllous'}]
+            }
+        })
+    </script> -->
+<!-- </body> -->
+<!-- </html> -->
+
+<!-- 第四种向父级发送请求 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="blog-posts-events-demo">
+        <div :style="{fontSize:postFontSize + 'em'}">
+            <!-- <blog-post v-for="post in posts" :key="post.id" :post="post" v-on:enlarge-text="postFontSize += $event"></blog-post> -->
+            <blog-post v-for="post in posts" :key="post.id" :post="post" v-on:enlarge-text="onEnlargeText"></blog-post>
+        </div>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        Vue.component('blog-post', {
+            props: ['post'],
+            template: `
+                    <div class="blog-post">
+                        <h3>{{ post.title }}</h3>
+                        <button v-on:click="$emit('enlarge-text',0.1)">Enlarge text</button>
+                        <div v-html="post.content"></div>
+                    </div>
+                    `
+        })
+        new Vue({
+            el: '#blog-posts-events-demo',
+            data:{
+                posts: [{ id: 1, title: 'My journey with Vue',content:'cata'},
+                    { id: 2, title: 'Blogging with Vue',content:'characteristic'},
+                    { id: 3, title: 'Why Vue is so fun',content:'scenery'}],
+                    postFontSize: 1
+            },
+            methods: {
+                onEnlargeText: function (enlargeAmount) {
+                    this.postFontSize += enlargeAmount
+                 }
+            }
+        })
+    </script> 
+</body>
+</html>

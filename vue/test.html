@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+    table th,td{
+        text-align: center;
+    }
+    </style>
+</head>
+<body>
+<div id="app">
+    <!-- 标题 -->
+    <div class="border-bottom" style="height: 75px;">
+        <h3 class="text-center h-50 align-middle" style="line-height: 75px">todilist</h3>
+    </div>
+    <!-- 第一个搜索 -->
+    <div class="btn-toolbar my-4 " style="margin:3px 540px">
+        <div class="input-group mr-2">
+            <input type="text" class="form-control"  aria-describedby="btnGroupAddon" placeholder="请输入关键字">
+        </div>
+        <div class="btn-group" role="group" aria-label="First group">
+            <button type="button" class="btn btn-primary">搜索</button>
+        </div>
+    </div>
+    <!-- 第二行搜索 -->
+    <div class="my-4 clearfix" style="margin: 350px;">
+        <p for="exampleInputEmail1" class="float-left mr-2" style="line-height: 38px;">商品名称</p>
+        <input type="text" class="form-control float-left mr-2"  placeholder="请输入名称" style="width: 200px">
+        <p for="exampleInputEmail1" class="float-left mr-2" style="line-height: 38px;">商品价格</p>
+        <input type="number" class="form-control float-left"  placeholder="0" style="width: 200px">
+        <button type="button" class="btn btn-primary float-left ml-2">搜索</button>
+    </div>
+
+
+
+    <table class="table table-bordered table-hover table-striped">
+        <thead >
+            <tr>
+                <th scope="col">选择</th>
+                <th scope="col">商品名称</th>
+                <th scope="col">商品价格</th>
+                <th scope="col">删除</th>   
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="(item,index) in productList" @click="checkLine(item)" :key="index">
+                <td><input type="checkbox" :value="item.id" v-model="chek"></td>
+                <td>{{item.name}}</td>
+                <td>{{item.price}}</td>
+                <td>
+                    <button type="button" class="btn btn-danger btn-sm"><span aria-hidden="true">&times;</span></button>
+                </td>
+            </tr>
+            <tr>
+                <td scope="row"><button type="button" class="btn btn-danger">删除选中</button></td>
+                <td colspan="3">总价：{{sum}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+    <script src="vue.js"></script>
+    <script>
+       var vm = new Vue({
+            el:"#app",
+            data:{
+                // chek:[],
+                productList:[{
+                    id:"1",
+                    name:"衣服",
+                    price:123,
+                    isSelect:false
+                },{
+                    id:"2",
+                    name:"裤子",
+                    price:456,
+                    isSelect:false
+                },{
+                    id:"3",
+                    name:"鞋",
+                    price:666,
+                    isSelect:false
+                },{
+                    id:"4",
+                    name:"帽子",
+                    price:233,
+                    isSelect:false
+                },{
+                    id:"5",
+                    name:"手套",
+                    price:88,
+                    isSelect:false
+                }],
+            },
+            methods:{
+                checkLine(obj){
+                    obj.isSelect = !obj.isSelect;
+                },
+            },
+            computed:{
+                chek(){
+                    let arr = [];
+                    this.productList.forEach(val =>{
+                        if(val.isSelect){
+                            arr.push(val.id);
+                        }
+                    });
+                    return arr;
+                },
+                sum(){
+                    let thisNum = 0;
+                    this.productList.forEach(val =>{
+                        if(val.isSelect){
+                            thisNum+=val.price;
+                        }
+                    });
+                    return thisNum;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

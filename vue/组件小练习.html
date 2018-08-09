@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="button-events">
+        <button-c value="登陆" ></button-c>
+        <button-c value="注册"></button-c>
+    </div>
+
+    <div id="window-a">
+        <alert-box>
+            <div>用户名：</div>
+            <div>密码：</div>
+        </alert-box>
+        <alert-box>
+            <div>用户名：</div>
+            <div>密码：</div>
+        </alert-box>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        Vue.component('button-c',{
+           props:['value'],
+            template:`<button @clcik="$emit('onload')">{{value}}</button>`
+        })
+        Vue.component('alert-box', {
+            template: `<div class="demo-alert-box">
+                        <slot></slot>
+                        <button>确认</button>
+                        </div>`
+         })
+         new Vue({
+             el:"#window-a"
+         })
+
+        new Vue({
+            el:"#button-events",
+            data:{
+
+            }
+        })
+    </script>
+</body>
+</html>
