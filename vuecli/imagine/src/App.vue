@@ -1,28 +1,34 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <navigation :movieTitle="movieName"></navigation>
+    <div class="container">
+      <router-view @routerChange="change"></router-view>
+    </div>
   </div>
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import navigation from '@/components/Navigation.vue'
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
+  data(){
+    return{
+      movieName:"movie"
+    }
+  },
+  components:{
+    navigation
+  },
+  methods:{
+    change(name){
+      this.movieName = name
+    }
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+
+<style scoped>
+.container{
+  padding: 1rem 0;
 }
 </style>
+
