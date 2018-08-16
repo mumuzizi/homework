@@ -1,10 +1,11 @@
 <template>
   <div class="container">
-    电影详情页面
-    {{detailData.title}}
+    <h1>电影详情页面:{{$route.params.id}}</h1>
+   
   </div>
 </template>
 <script>
+import axios from 'axios'
 export default {
   created() {
     this.getData();
@@ -16,11 +17,13 @@ export default {
   },
   methods:{
     getData(){
-      axios.get(API_PROXY+'https://api.douban.com/v2/movie/subject/'+this.$route.params.movieId).then((res)=>{
-          console.log(res);
-          this.detailData = res.data
-        }).catch((res)=>{
-          console.log("error!")
+      axios.get(API_PROXY+'https://api.douban.com/v2/movie/subject/'+this.$route.params.id)
+      .then((res)=>{
+        //  console.log(res);
+         
+        })
+        .catch(()=>{
+         
         })
     }
   }

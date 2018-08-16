@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let reg=/c/;
+        // let reg1=new RegExp('c');
+        // let str="cba";
+        // console.log(str.includes("c"));
+        // console.log(reg1.test(str));
+        // console.log(reg1.exec(str));
+
+        // let reg=/^sd$/;/*s{2}表示匹配连续两个s*//*as{2}表示匹配出ass*/
+        // let str="sd";
+        // console.log(reg.exec(str));
+
+        
+        // let reg=/./;
+        // let str="fulfillment";
+        // console.log(reg.exec(str));
+
+        // let reg=/.+/;
+        // let str="fulfill\nment";
+        // console.log(reg.exec(str));
+
+        // let reg=/^.+/;
+        // let str="fulfillment";
+        // console.log(reg.exec(str));
+
+        // let reg=/b|c/;
+        // let str="fulfillment";
+        // console.log(reg.exec(str));
+
+        // let reg=/^b|c.+/;/*以b开头,或是从c开始以后的除\n的字符*/
+        // let str="fulfillment";
+        // console.log(reg.exec(str));
+        
+        // let reg=/^[abc].+/;
+        // let str="fulfillment";
+        // console.log(reg.exec(str));
+
+        
+        // let reg=/^[a-z][a-zA-Z0-9].+/;
+        // let str="fulfil012lmeVCEnt";
+        // console.log(reg.exec(str));
+
+         
+        // let reg=/^[a-z]b.+/;//以a到z开头且后面紧跟b
+        // let str="fbulfillment";
+        // console.log(reg.exec(str));
+
+         
+        // let reg=/^[^a-z]+/;
+        // let str="BBfulfil012lmeVCEnt";
+        // console.log(reg.exec(str));
+
+         
+        // let reg=/\bc/;
+        // let str="维生素c";
+        // console.log(reg.exec(str));
+
+        // let reg=/\Bc/;
+        // let str="acb";
+        // console.log(reg.exec(str));
+
+        // let reg=/\d/;
+        // let str="ac1ba";
+        // console.log(reg.exec(str));
+
+        // let reg=/\D/;
+        // let str="ac1ba";
+        // console.log(reg.exec(str));
+
+        // let reg=/\S/;
+        // let str="ac 1ba";
+        // console.log(reg.exec(str));
+
+        // let reg=/(\w)(\w)\1/;//\1是指跟第一个\w一样的字符
+        // let str="abacdefg";
+        // console.log(reg.exec(str));
+
+        // let reg=/^(b|c).+/;
+        // let str="bbs.blueidea.com";
+        // console.log(reg.exec(str));
+
+        // let reg=/cainiao(?!8)/;
+        // let str="cainiao";
+        // console.log(reg.exec(str));
+
+        // let reg=/b/i;
+        // let str="ABCD";
+        // console.log(reg.exec(str));
+
+        // let reg=/^C/m;
+        // let str="AB\nCD";
+        // console.log(reg.exec(str));
+
+        let reg=/C/g;
+        let str="ABCDC";
+        console.log(str.replace(reg,9));
+    </script>
+</body>
+</html>

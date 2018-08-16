@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+    function isEmail(val){
+        var myreg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,4}$/;
+        // var myreg=/^\w[a-z]([a-z0-9]*[-_]?[a-z0-9]+)*@([a-z0-9]*[-_]?[a-z0-9]+)+[\.][a-z]{2,3}([\.][a-z]{2})$/i;
+        if(!myreg.test(val))
+          return '不是邮箱';
+        return '是邮箱';
+    };
+    function isWeb(val){
+        var webreg=/^([w{3}][\.]?)([a-zA-Z0-9][_|\_|\.]?)*[\.][a-zA-Z]{2,4}$/;
+        if(!webreg.test(val))
+          return '不是网址';
+        return '是网址';
+    };
+    var str='qw4567@qq.com'
+    // console.log(isEmail(str));
+    var str1='www.baidu.com'
+    console.log(isWeb(str1));
+    
+
+    </script>
+
+
+
+
+    <!-- <div>
+        Email：<input type="text" id="texts" value=""/>
+    </div>
+    <span id="notice"></span>
+    <script>
+    
+    let re =/^\w[a-z]([a-z0-9]*[-_]?[a-z0-9]+)*@([a-z0-9]*[-_]?[a-z0-9]+)+[\.][a-z]{2,3}([\.][a-z]{2})$/i;
+    
+    texts.oninput = function () {
+    
+     let textBox = this.value;
+    
+    }
+    
+    </script> -->
+</body>
+</html>

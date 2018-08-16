@@ -8,7 +8,7 @@ import '@/assets/css/reset.css'
 import '@/assets/js/rem.js'
 
 Vue.config.productionTip = false
-// global.API_PROXY = 'https://bird.ioliu.cn/v2?url=';
+global.API_PROXY = 'https://bird.ioliu.cn/v2?url=';
 // global.activeNav = "movie"
 
 new Vue({

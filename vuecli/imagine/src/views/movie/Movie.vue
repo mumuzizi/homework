@@ -2,13 +2,13 @@
   <div>
     <div class="container">
       <ul>
-        <li v-for="(items,index) in dataList" :key="index+'dl'">
+        <li @click="$router.push({name:'moviedetail',params:{id:items.id}})" v-for="(items,index) in dataList" :key="index+'dl'">
           <div>
             <img :src="items.images.small">
           </div>
           <div>
             <h3>{{items.title}}</h3>
-            <span v-for="(items,index) in items.casts" :key="index+'mc'"></span>
+            <span v-for="(items,index) in items.casts" :key="index+'mc'">{{items.name}}</span>
             <p>{{items.collect_count}}人已观看</p>
             <p>年份{{items.years}}</p>
             <span v-for="(items,index) in items.genres" :key="index+'mg'">{{items}}/</span>
@@ -18,16 +18,17 @@
     </div>
     <div class="loading" v-show="!isFinish">
       <div class="load-content">
-        <img src="" alt="">
+        <img src="@/assets/loading.gif" alt="">
       </div>
     </div>
   </div>
 </template>
 <script>
+import axios from 'axios'
 export default {
   created(){
     this.getData()
-  },
+  }, 
    mounted(){
      window.onscroll = ()=>{
       //  console.log(document.documentElement.clientHeight);
@@ -51,14 +52,13 @@ export default {
   },
   methods:{
     getData(){
-      this.isFinish=false;
-      axios.get('https://api.myjson.com/bins/nsb9g')
+      this.isFinish = false;
+      axios.get(API_PROXY+'https://api.douban.com/v2/movie/in_theaters?start='+this.dataList.length+'&count=10')
       .then((response) => {
-        console.log(response);
-        this.dataList = this.dataList.concat(response.data.subjects);
-        this.isFinish=true;
+        this.dataList = this.dataList.concat(response.data.subjects)
+        this.isFinish = true;
       })
-      .catch((error)=> {
+      .catch((error) => {
         console.log(error);
       })
     },
@@ -81,7 +81,11 @@ export default {
     left: 50%;
     transform: translate(-50%,-50%);
     padding: 1rem;
-    border-radius: 5%；
+    border-radius: 5%;
+    background: rgba(255,255,255,.5);
+  }
+  span{
+    margin: 0 2px;
   }
 ul{
   padding: 0 .2rem;
